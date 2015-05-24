@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>How Long Can I Live</title>
+  <meta charset="utf-8">
+  <meta name="description" content="How Long Can I Live">
+  <meta name="author" content="Noah Xiao (https://au.linkedin.com/in/mengnoahxiao)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>How Long Can I Live</h1>
+    <h2>A Tiny Presentation for the app</h2>
+    <p>Noah Xiao (https://au.linkedin.com/in/mengnoahxiao)<br/>A BI Consultant</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Background</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The (<a href="https://noahhhhhh.shinyapps.io/draft/"><strong>How long can I live</strong></a>) app is served as an interactive tool which helps you to<br>
+1. understand how many years left (<strong>Life Expectancy</strong>) for you at your age<br>
+2. how likely you would die (<strong>Moratility Rate</strong>) within this year  </p>
+
+<p>Also and <em>more importantly</em>, you can use several sliders (exercise, walk, cigarette consumption, and driving mileage) to see how the change in the life style can make a difference.</p>
+
+<p><img src="assets/img/img.png" alt="alt text"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>A Bit Detail</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><strong>Dataset</strong><br>
+1.1 The foundamental dataset comes from Australian Bureau of Statistics.<br>
+1.2 It is in a format of life table, with a list of important parameters, such as death rate, life expectancy.<br></li>
+<li><strong>Fomula and calculation</strong><br>
+1.1 Based on the life table, motality rate (mx(x)) is calcualtd with the below formula:<br>
+\[ L(x) = l(x) + \frac {1} {2} l(x) q(x) \]
+\[ m(x) = \frac {l(x) q(x)} {L(x)} \]
+<em>p.s.</em><br>
+<em>l(x) is the total number of people survised at a certain year</em><br>
+<em>q(x) is the death rate at a certain year</em><br>
+<em>L(x) is the total number of people who are alive between a certain age and age + 1</em><br></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>More Detail</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>More parameters are added as they strongly contribute to the life span<br></li>
+</ol>
+
+<p>1.1 Exercise:<br>
+1 more hour on exercise per week will result in 4 days more in life expectancy each year  </p>
+
+<p>1.2 30-min Brisk Walk:<br>
+More than 6 times of 30-min Brisk walk per month will result in 44% decrease in death rate  </p>
+
+<p>1.3 Cigarette Consumption:<br>
+1 more cigarette per week will result in 3 days less in life expectancy each year  </p>
+
+<p>1.4 Driving Mileage<br>
+1000 miles more per year will result in .00365 day less in life expectancy each year  </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Theoretical Life Plot (Core of the app)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">par(mfrow=c(1,2))
+plot(x = df_life$Age, y = df_life$ex, col = df_life$gender, main = &quot;Age and Life Expectancy&quot;, xlab = &quot;Age&quot;, ylab = &quot;Life Expectancy&quot;)
+plot(x = df_life$Age, y = df_life$mx, col = df_life$gender, main = &quot;Age and Motality Rate&quot;, xlab = &quot;Age&quot;, ylab = &quot;Motality Rate&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Background'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='A Bit Detail'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='More Detail'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Theoretical Life Plot (Core of the app)'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
